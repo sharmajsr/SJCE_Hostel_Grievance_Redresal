@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "95619219776",
+    "firebase_url": "https://hostel-redressal.firebaseio.com",
+    "project_id": "hostel-redressal",
+    "storage_bucket": "hostel-redressal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95619219776:android:a80c2eda8e2afd1d",
+        "android_client_info": {
+          "package_name": "com.example.sjcehostelredressal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "95619219776-5fvnrogi5nm68te2i8sbco4rbarb1m94.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEWhTgqtM3zJeMstt-G9V1JJy9NSJPkGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "95619219776-5fvnrogi5nm68te2i8sbco4rbarb1m94.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
