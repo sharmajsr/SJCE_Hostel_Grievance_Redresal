@@ -20,7 +20,7 @@ class _MyFormState extends State<MyForm> {
   bool validateName = true;
   bool validateNumber = true;
   bool validateDetail = true;
-  static const typeItems = <String>['General', 'Electrical', 'Sanitation'];
+  static const typeItems = <String>['General', 'Electrical', 'Sanitation','Civil','Food'];
   final List<DropdownMenuItem<String>> _dropDownMenuItems = typeItems
       .map((String value) => DropdownMenuItem<String>(
             value: value,
@@ -74,9 +74,10 @@ class _MyFormState extends State<MyForm> {
               padding: const EdgeInsets.only(top: 14.0, bottom: 6),
               child: Text('Enter phone',style:textStyle),
             ),
-            TextField(
+            TextField(maxLength: 10,
               controller: phoneController,
               keyboardType: TextInputType.number,
+              decoration: InputDecoration(prefixText: '+91-',),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 14.0, bottom: 6),
