@@ -23,9 +23,9 @@ class _MyFormState extends State<MyForm> {
   static const typeItems = <String>['General', 'Electrical', 'Sanitation','Civil','Food'];
   final List<DropdownMenuItem<String>> _dropDownMenuItems = typeItems
       .map((String value) => DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          ))
+    value: value,
+    child: Text(value),
+  ))
       .toList();
   String dropDownValue = "General";
 
@@ -48,6 +48,7 @@ class _MyFormState extends State<MyForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff028090),
         title: Text('Create Complaint'),
       ),
       body: Padding(
@@ -96,10 +97,10 @@ class _MyFormState extends State<MyForm> {
             RaisedButton(
               onPressed: getImage,
               child:
-                  sampleImage == null ? Text('Pick an image') : uploadPicture(),
+              sampleImage == null ? Text('Pick an image') : uploadPicture(),
             ),
             RaisedButton(
-              color: Colors.blue,
+              color: Color(0xff028090),
               child: Text(
                 'Submit',
                 style: TextStyle(color: Colors.white,fontSize: 17),
@@ -119,7 +120,7 @@ class _MyFormState extends State<MyForm> {
                   "phone": "${phoneController.text.trim()}",
                   "url": "${url.toString()}",
                   "id": "${random}",
-                  "category":"$dropDownValue",
+                  "category":"${dropDownValue}",
                   "status": "Pending"
                 };
                 if (validateName && validateNumber && validateNumber)
@@ -157,7 +158,7 @@ class _MyFormState extends State<MyForm> {
   Future<String> uploadImage() async {
     // print('\n\n$filename\n\n');
     final StorageReference firebaseStorageRef =
-        FirebaseStorage.instance.ref().child('$random');
+    FirebaseStorage.instance.ref().child('$random');
     final StorageUploadTask task = firebaseStorageRef.putFile(sampleImage);
     var downUrl = await (await task.onComplete).ref.getDownloadURL();
     url = downUrl.toString();

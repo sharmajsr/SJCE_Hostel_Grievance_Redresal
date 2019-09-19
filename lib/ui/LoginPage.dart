@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sjcehostelredressal/ui/Dashboard.dart';
+import 'package:sjcehostelredressal/ui/AdminDashboard.dart';
+import 'package:sjcehostelredressal/ui/UserDashboard.dart';
+import 'package:sjcehostelredressal/ui/delete.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff028090),
         title: Text('Login Page'),
       ),
       body: Row(crossAxisAlignment: CrossAxisAlignment.center,
@@ -20,14 +23,17 @@ class _LoginPageState extends State<LoginPage> {
             child: Text('User'),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Dashboard(0)));
+                  MaterialPageRoute(builder: (context) =>
+                      UserDashboard()
+                  //    Dashboard(0)
+                  ));
             },
           ),
           RaisedButton(color: Colors.blue,
             child: Text('Admin'),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Dashboard(1)));
+                  MaterialPageRoute(builder: (context) => AdminDashboard()));
             },
           ),
         ],

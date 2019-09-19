@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sjcehostelredressal/ui/Dashboard.dart';
-import 'package:sjcehostelredressal/ui/selectionScreen.dart';
+import 'package:sjcehostelredressal/ui/LoginPage.dart';
 
 void main() => runApp(MyApp());
 

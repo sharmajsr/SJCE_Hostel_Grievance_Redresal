@@ -8,10 +8,12 @@ class ComplaintDetails extends StatefulWidget {
   String url;
   String status;
   String id;
+  String category;
   int flag;
 
+
   ComplaintDetails(this.name, this.detail, this.phone, this.url, this.status,
-      this.id, this.flag);
+      this.id, this.category,this.flag);
 
   @override
   _ComplaintDetailsState createState() => _ComplaintDetailsState();
@@ -46,6 +48,7 @@ class _ComplaintDetailsState extends State<ComplaintDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff028090),
         title: Text('ComplaintDetail'),
       ),
       body: Padding(
@@ -118,7 +121,8 @@ class _ComplaintDetailsState extends State<ComplaintDetails> {
                                   "phone": "${widget.phone}",
                                   "url": "${widget.url}",
                                   "id": "${widget.id}",
-                                  "status": "$message"
+                                  "status": "$message",
+                                  "category":"${widget.category}"
                                 };
                                 database
                                     .reference()
