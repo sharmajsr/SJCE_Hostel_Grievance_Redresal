@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sjcehostelredressal/ui/AdminDashboard.dart';
-import 'package:sjcehostelredressal/ui/UserDashboard.dart';
-import 'package:sjcehostelredressal/ui/delete.dart';
+import 'package:sjcehostelredressal/ui/Dashboard.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -13,7 +11,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff028090),
         title: Text('Login Page'),
       ),
       body: Row(crossAxisAlignment: CrossAxisAlignment.center,
