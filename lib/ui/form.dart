@@ -4,6 +4,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:random_string/random_string.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sjcehostelredressal/utils/Constants.dart';
 //test
 final FirebaseDatabase database = FirebaseDatabase.instance;
 
@@ -17,6 +19,21 @@ class _MyFormState extends State<MyForm> {
   String filename;
   String random;
   var url;
+  String _name,_mobile,_block,_room;
+  @override
+  void initState() {
+    super.initState();
+    shared();
+  }
+  shared() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _name = (prefs.getString(Constants.loggedInName));
+      _mobile=(prefs.getString(Constants.loggedInUserMobile));
+      _block=(prefs.getString(Constants.loggedInUserBlock));
+      _room=(prefs.getString(Constants.loggedInUserRoom));
+    });
+  }
   bool validateName = true;
   bool validateNumber = true;
   bool validateDetail = true;
@@ -55,10 +72,10 @@ class _MyFormState extends State<MyForm> {
         padding: const EdgeInsets.all(14.0),
         child: ListView(
           children: <Widget>[
-            Text('Enter your Name',style:textStyle),
-            TextField(
-              controller: nameController,
-            ),
+//            Text('Enter your Name',style:textStyle),
+//            TextField(
+//              controller: nameController,
+//            ),
             Padding(
               padding: const EdgeInsets.only(top: 14.0, bottom: 6),
               child: Text('Enter details',style:textStyle),
@@ -71,15 +88,15 @@ class _MyFormState extends State<MyForm> {
               ),
               controller: infoController,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 14.0, bottom: 6),
-              child: Text('Enter phone',style:textStyle),
-            ),
-            TextField(maxLength: 10,
-              controller: phoneController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(prefixText: '+91-',),
-            ),
+//            Padding(
+//              padding: const EdgeInsets.only(top: 14.0, bottom: 6),
+//              child: Text('Enter phone',style:textStyle),
+//            ),
+//            TextField(maxLength: 10,
+//              controller: phoneController,
+//              keyboardType: TextInputType.number,
+//              decoration: InputDecoration(prefixText: '+91-',),
+//            ),
             Padding(
               padding: const EdgeInsets.only(top: 14.0, bottom: 6),
               child: Text('Select Category',style:textStyle),
@@ -115,15 +132,18 @@ class _MyFormState extends State<MyForm> {
                 var url = await uploadImage();
 
                 Map data = {
-                  "name": "${nameController.text.trim()}",
+                  "name": "$_name",
                   "detail": "${infoController.text.trim()}",
-                  "phone": "${phoneController.text.trim()}",
+                  "phone": "$_mobile",
                   "url": "${url.toString()}",
                   "id": "${random}",
                   "category":"${dropDownValue}",
+                  "block":"$_block",
+                  "room":"$_room",
                   "status": "Pending"
+
                 };
-                if (validateName && validateNumber && validateNumber)
+                if ( validateDetail )
                   database.reference().child("hostel/" + random).set(data);
                 Navigator.pop(context);
               },

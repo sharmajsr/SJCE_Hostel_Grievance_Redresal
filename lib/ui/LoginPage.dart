@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sjcehostelredressal/ui/AdminDashboard.dart';
 import 'package:sjcehostelredressal/ui/UserDashboard.dart';
+import 'package:sjcehostelredressal/utils/Constants.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
           RaisedButton(color: Colors.lightGreen,
             child: Text('User'),
             onPressed: () {
+            print("${Constants.loggedInName}");
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) =>
                       UserDashboard()
@@ -31,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
           RaisedButton(color: Colors.blue,
             child: Text('Admin'),
             onPressed: () {
+
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => AdminDashboard()));
             },

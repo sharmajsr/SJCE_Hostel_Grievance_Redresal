@@ -6,7 +6,7 @@ class Constants{
 
   static String loggedInUserId = "LOGGEDUSERID";
 
-  static String loggedInName = "LOGGEDNAME";
+  static String loggedInName ;//= "LOGGEDNAME";
   static String loggedInUserRole = "LOGGEDINUSERROLE";
   static String loggedInUserMobile = "LOGGEDMOBILE";
   static String loggedInUserBlock = "LOGGEDUSERBLOCK";

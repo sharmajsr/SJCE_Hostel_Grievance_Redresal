@@ -1,12 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sjcehostelredressal/login.dart';
 import 'package:sjcehostelredressal/ui/LoginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
 class SignUp extends StatelessWidget {
-
   Map data;
 
   TextEditingController emailController = TextEditingController();
@@ -17,35 +16,25 @@ class SignUp extends StatelessWidget {
   TextEditingController roomController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
 
-
-
   @override
   Widget build(BuildContext context) {
-
     Future<void> signUp() async {
       //final forState = formKey.currentState;
 
       try {
-
-        AuthResult result = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: emailController.text, password: passwordController.text);
+        AuthResult result = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: emailController.text, password: passwordController.text);
         FirebaseUser user = result.user;
-     
 
-        Firestore.instance
-            .collection("users")
-          .document((
-            user.uid
-            )).setData({
-
+        Firestore.instance.collection("users").document((user.uid)).setData({
           "name": "${nameController.text}",
           "usn": "${usnController.text}",
           "block": "${blockController.text}",
           "room": "${roomController.text}",
           "mobile": "${mobileController.text}",
           "role": "student"
-        })
-           ;
+        });
 
         print(user);
 
@@ -63,25 +52,22 @@ class SignUp extends StatelessWidget {
 //      },
 //        )
 
-
 //        final FirebaseUser user = (await FirebaseAuth.instance
 //            .createUserWithEmailAndPassword(
 //            email: emailController.text,
 //            password: passwordController.text)).user;
         user.sendEmailVerification();
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginPage()));
+            context, MaterialPageRoute(builder: (context) => Login()));
       } catch (e) {
         print(e.message);
       }
     }
+
     return Scaffold(
       body: new Container(
         width: double.infinity,
-        height: MediaQuery
-            .of(context)
-            .size
-            .height,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(8.0),
@@ -105,7 +91,6 @@ class SignUp extends StatelessWidget {
                       fontSize: ScreenUtil.getInstance().setSp(45),
                       fontFamily: "Poppins-Bold",
                       letterSpacing: .6)),
-
               SizedBox(
                 height: ScreenUtil.getInstance().setHeight(30),
               ),
@@ -123,7 +108,6 @@ class SignUp extends StatelessWidget {
                 height: ScreenUtil.getInstance().setHeight(30),
               ),
               Text("USN No.",
-
                   style: TextStyle(
                       fontFamily: "Poppins-Medium",
                       fontSize: ScreenUtil.getInstance().setSp(26))),
@@ -147,7 +131,8 @@ class SignUp extends StatelessWidget {
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
               ),
               SizedBox(
-                height: ScreenUtil.getInstance().setHeight(30),),
+                height: ScreenUtil.getInstance().setHeight(30),
+              ),
               Text("Room No.",
                   style: TextStyle(
                       fontFamily: "Poppins-Medium",
@@ -187,7 +172,6 @@ class SignUp extends StatelessWidget {
               SizedBox(
                 height: ScreenUtil.getInstance().setHeight(35),
               ),
-
               Text("Password",
                   style: TextStyle(
                       fontFamily: "Poppins-Medium",
@@ -197,23 +181,19 @@ class SignUp extends StatelessWidget {
                 controller: passwordController,
                 decoration: InputDecoration(
                     hintText: "Password",
-
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
               ),
               SizedBox(
                 height: ScreenUtil.getInstance().setHeight(35),
               ),
-
               InkWell(
                 child: Center(
                   child: Container(
                     width: ScreenUtil.getInstance().setWidth(250),
                     height: ScreenUtil.getInstance().setHeight(60),
                     decoration: BoxDecoration(
-                        gradient: LinearGradient(colors: [
-                          Color(0xFF17ead9),
-                          Color(0xFF6078ea)
-                        ]),
+                        gradient: LinearGradient(
+                            colors: [Color(0xFF17ead9), Color(0xFF6078ea)]),
                         borderRadius: BorderRadius.circular(6.0),
                         boxShadow: [
                           BoxShadow(
@@ -225,20 +205,17 @@ class SignUp extends StatelessWidget {
                       color: Colors.transparent,
                       child: InkWell(
                         onTap: () {
+                          data = {
+                            "name": "${nameController.text}",
+                            "usn": "${usnController.text}",
+                            "block": "${blockController.text}",
+                            "room": "${roomController.text}",
+                            "mobile": "${mobileController.text}",
+                            "role": "student"
+                          };
 
-
-//                          data = {
-//                            "name": "${nameController.text}",
-//                            "usn": "${usnController.text}",
-//                            "block": "${blockController.text}",
-//                            "room": "${roomController.text}",
-//                            "mobile": "${mobileController.text}"
-//                            'title': 'title', 'author': 'author'
-
-//                          };
-
-
-                          signUp();},
+                          signUp();
+                        },
                         child: Center(
                           child: Text("SignUp",
                               style: TextStyle(
@@ -258,6 +235,4 @@ class SignUp extends StatelessWidget {
       ),
     );
   }
-
-
 }

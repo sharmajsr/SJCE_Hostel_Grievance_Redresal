@@ -2,21 +2,24 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sjcehostelredressal/model/complaints.dart';
 import 'package:sjcehostelredressal/ui/ComplaintDetails.dart';
 import 'package:sjcehostelredressal/ui/form.dart';
+import 'package:sjcehostelredressal/utils/Constants.dart';
+import 'package:sjcehostelredressal/utils/Constants.dart';
+import 'package:sjcehostelredressal/utils/Constants.dart';
 
 class UserDashboard extends StatefulWidget {
-
-
   @override
   _UserDashboardState createState() => _UserDashboardState();
 }
 
-class _UserDashboardState extends State<UserDashboard> with TickerProviderStateMixin {
+class _UserDashboardState extends State<UserDashboard>
+    with TickerProviderStateMixin {
   List<Complaints> complaintList = List();
   Map<dynamic, dynamic> data;
-
+  String name;
   Complaints complaint;
   final FirebaseDatabase database = FirebaseDatabase.instance;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -26,6 +29,7 @@ class _UserDashboardState extends State<UserDashboard> with TickerProviderStateM
   @override
   void initState() {
     super.initState();
+    shared();
     complaint = Complaints("", "", "", "");
     databaseReference = database.reference();
     databaseReference.onChildAdded.listen(onDataAdded);
@@ -35,39 +39,43 @@ class _UserDashboardState extends State<UserDashboard> with TickerProviderStateM
         new TabController(length: 5, vsync: this, initialIndex: 0);
   }
 
+  shared() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      name = (prefs.getString(Constants.loggedInName));
+    });
+  }
+
   static const textStyle = TextStyle(
     fontSize: 16,
   );
 
   @override
   Widget build(BuildContext context) {
-//    var _fabLocation=kFabCenterDocked;
-//    static const  kFabCenterDocked = _fabLocation<FloatingActionButtonLocation>(
-//      title: 'Attached - Center',
-//      label: 'floating action button is docked at the center of the bottom app bar',
-//      value: FloatingActionButtonLocation.centerDocked,
-//    );
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(tooltip: 'Add a Complaint',
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Add a Complaint',
         backgroundColor: Color(0xff028090),
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => MyForm()));
         },
-        child: Icon(Icons.edit,color: Colors.white,),
+        child: Icon(
+          Icons.edit,
+          color: Colors.white,
+        ),
       ),
       appBar: AppBar(
         backgroundColor: Color(0xff028090),
-        title: Text('Dashboard'),
+        title: Text('$name Dashboard'),
         bottom: TabBar(
           indicatorSize: TabBarIndicatorSize.label,
           controller: tabBarController,
           indicator: UnderlineTabIndicator(
-            borderSide: BorderSide(width: 2.0,color: Colors.white),
-            insets: EdgeInsets.symmetric(horizontal:0.0)
-          ),
+              borderSide: BorderSide(width: 2.0, color: Colors.white),
+              insets: EdgeInsets.symmetric(horizontal: 0.0)),
           //indicatorSize: TabBarIndicatorSize.tab,
           indicatorWeight: 15,
           unselectedLabelStyle: TextStyle(
@@ -137,7 +145,7 @@ class _UserDashboardState extends State<UserDashboard> with TickerProviderStateM
             ),
           ],
         ),
-        color:Color(0xff028090),
+        color: Color(0xff028090),
       ),
     );
   }
@@ -179,7 +187,7 @@ class _UserDashboardState extends State<UserDashboard> with TickerProviderStateM
                 data['id'],
                 data['category'],
                 complaintType,
-               0);
+                0);
           else
             return Container();
         });
@@ -203,7 +211,7 @@ class _UserDashboardState extends State<UserDashboard> with TickerProviderStateM
             context,
             MaterialPageRoute(
                 builder: (context) => ComplaintDetails(
-                    name, detail, phone, url, status, id,category, flag)));
+                    name, detail, phone, url, status, id, category, flag)));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 6),

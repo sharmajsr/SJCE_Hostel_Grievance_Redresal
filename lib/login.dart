@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-//import 'package:flutter_login_page_ui/signup.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sjcehostelredressal/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:sjcehostelredressal/ui/AdminDashboard.dart';
 import 'package:sjcehostelredressal/ui/LoginPage.dart';
-import 'ui/SocialIcons.dart';
-import 'CustomIcons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sjcehostelredressal/ui/UserDashboard.dart';
+import 'package:sjcehostelredressal/utils/Constants.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   String _email, _password;
-
+  String name, usn, role, mobile, block, room;
   bool _isSelected = false;
 
   void _radio() {
@@ -195,13 +195,34 @@ class _LoginState extends State<Login> {
       final FirebaseUser user = (await FirebaseAuth.instance
               .signInWithEmailAndPassword(
                   email: emailController.text,
-                  password: passwordController.text))
-          .user;
-          QuerySnapshot snapshot = await Firestore.instance.collection(user.uid).getDocuments();
-          print(snapshot);
+                  password: passwordController.text)).user;
+      var d = await Firestore.instance
+          .collection('users')
+          .document(user.uid)
+          .get()
+          .then((DocumentSnapshot) async {
+        name = DocumentSnapshot.data['name'];
+        usn = DocumentSnapshot.data['usn'];
+        role = DocumentSnapshot.data['role'];
+        block = DocumentSnapshot.data['block'];
+        room = DocumentSnapshot.data['room'];
+        mobile = DocumentSnapshot.data['mobile'];
+        print("name : $name");
+        final prefs=await SharedPreferences.getInstance();
 
+        prefs.setString(Constants.loggedInName, name);
+        prefs.setString(Constants.loggedInUserRole, role);
+        prefs.setString(Constants.loggedInUserBlock, block);
+        prefs.setString(Constants.loggedInUserRoom, room);
+        prefs.setString(Constants.loggedInUserMobile, mobile);
+        print(DocumentSnapshot.data.toString());
+      });
+      if(role=="student")
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+          context, MaterialPageRoute(builder: (context) => UserDashboard()));
+      else
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => AdminDashboard()));
     } catch (e) {
       print(e.message);
     }
