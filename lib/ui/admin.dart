@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:sjcehostelredressal/model/complaints.dart';
-import 'package:sjcehostelredressal/ui/ComplaintDetails.dart';
-import 'package:sjcehostelredressal/ui/admin.dart';
 import 'package:sjcehostelredressal/ui/form.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 

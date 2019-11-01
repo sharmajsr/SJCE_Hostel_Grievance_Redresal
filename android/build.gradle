@@ -12,6 +12,11 @@ buildscript {
 }
 
 allprojects {
+//    configurations.all {
+//        resolutionStrategy {
+//            force 'com.google.firebase:firebase-firestore:18.2.0'
+//        }
+//    }
     repositories {
         google()
         jcenter()

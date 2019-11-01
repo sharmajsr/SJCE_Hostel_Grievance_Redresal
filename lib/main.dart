@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sjcehostelredressal/firstpage.dart';
+import 'package:sjcehostelredressal/login.dart';
 import 'package:sjcehostelredressal/ui/LoginPage.dart';
 
-void main() => runApp(MyApp1());
 
-class MyApp1 extends StatelessWidget {
+void main() => runApp(MyApp());
 
+class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class MyApp1 extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: MyApp(),
+      home: Login(),
     );
   }
 }
