@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sjcehostelredressal/login.dart';
-import 'package:sjcehostelredressal/ui/LoginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUp extends StatelessWidget {
@@ -19,8 +18,6 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future<void> signUp() async {
-      //final forState = formKey.currentState;
-
       try {
         AuthResult result = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
@@ -151,9 +148,12 @@ class SignUp extends StatelessWidget {
                       fontFamily: "Poppins-Medium",
                       fontSize: ScreenUtil.getInstance().setSp(26))),
               TextField(
+                maxLength: 10,
                 controller: mobileController,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                     hintText: "Mobile",
+                    prefixText: '+91-',
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
               ),
               SizedBox(
@@ -164,6 +164,7 @@ class SignUp extends StatelessWidget {
                       fontFamily: "Poppins-Medium",
                       fontSize: ScreenUtil.getInstance().setSp(26))),
               TextField(
+                keyboardType: TextInputType.emailAddress,
                 controller: emailController,
                 decoration: InputDecoration(
                     hintText: "Email",

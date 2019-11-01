@@ -126,7 +126,7 @@ class _ComplaintDetailsState extends State<ComplaintDetails> {
                                 };
                                 database
                                     .reference()
-                                    .child("hostel/" + widget.id)
+                                    .child("hostel/" +widget.category +'/'+ widget.id)
                                     .set(data);
 
                                 //database.reference().child("hostel").update(data).then((data){print('data');});

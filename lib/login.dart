@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sjcehostelredressal/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sjcehostelredressal/ui/AdminDashboard.dart';
-import 'package:sjcehostelredressal/ui/LoginPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sjcehostelredressal/ui/UserDashboard.dart';
 import 'package:sjcehostelredressal/utils/Constants.dart';
@@ -71,7 +70,7 @@ class _LoginState extends State<Login> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(right: 45.0, top: 10.0),
-                child: Image.asset("assets/apppicedit.jpg"),
+                child: Center(child: Image.asset("assets/apppicedit.jpg")),
               ),
               Expanded(
                 child: Container(),
@@ -215,6 +214,10 @@ class _LoginState extends State<Login> {
         prefs.setString(Constants.loggedInUserBlock, block);
         prefs.setString(Constants.loggedInUserRoom, room);
         prefs.setString(Constants.loggedInUserMobile, mobile);
+        if(_isSelected) {
+          prefs.setString(Constants.isLoggedIn, 'true');
+        }
+
         print(DocumentSnapshot.data.toString());
       });
       if(role=="student")

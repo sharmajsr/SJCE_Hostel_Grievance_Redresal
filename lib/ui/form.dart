@@ -144,7 +144,7 @@ class _MyFormState extends State<MyForm> {
 
                 };
                 if ( validateDetail )
-                  database.reference().child("hostel/" + random).set(data);
+                  database.reference().child("hostel/"+ dropDownValue+'/'+ random).set(data);
                 Navigator.pop(context);
               },
             ),

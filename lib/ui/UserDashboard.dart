@@ -172,7 +172,7 @@ class _UserDashboardState extends State<UserDashboard>
   Widget firebaseList(String complaintType) {
     return FirebaseAnimatedList(
         defaultChild: Center(child: CircularProgressIndicator()),
-        query: databaseReference.child('hostel'),
+        query: databaseReference.child('hostel/'+'$complaintType' ),
         itemBuilder:
             (_, DataSnapshot snapshot, Animation<double> animation, int index) {
           data = snapshot.value;
