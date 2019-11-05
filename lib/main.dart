@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sjcehostelredressal/login.dart';
 import 'package:sjcehostelredressal/ui/UserDashboard.dart';
 import 'package:sjcehostelredressal/ui/admin.dart';
+import 'package:sjcehostelredressal/utils/CommonData.dart';
 import 'package:sjcehostelredressal/utils/Constants.dart';
 
 
@@ -16,6 +17,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   void initState() {
     //super.initState();
+   // CommonData.clearLoggedInUserData();
     shared();
   }
 
@@ -34,10 +36,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
-      home:// _login=="true"? ( _role=="student"? UserDashboard():AdminDashboard() ) :
+      home : //_login=="true" ? ( _role == "student" ? UserDashboard() : AdminDashboard() ) :
       Login(),
     );
   }
