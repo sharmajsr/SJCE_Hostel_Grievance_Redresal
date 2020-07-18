@@ -28,7 +28,7 @@
 <tr>
 <th style="text-align:center"><code>Login </code></th>
 <th style="text-align:center"><code>Sign Up </code></th>
-<th style="text-align:center"><code>Dashboard Electrical</code></th>
+<th style="text-align:center"><code>Dashboard Sanitaion</code></th>
 <!-- <th style="text-align:center"><code>Dashboard Food </code></th> -->
 
 </tr>
@@ -37,8 +37,8 @@
 <tr>
 <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/login.jpeg?raw=true" height = "500px"/></td>
 <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/signup.jpeg?raw=true" height = "500px"/></td>
-  
-<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard%20electrical.jpeg?raw=true" height = "500px"/></td>
+ <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard.jpeg?raw=true" height = "500px"/></td>  
+ <!--<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard%20electrical.jpeg?raw=true" height = "500px"/></td> -->
 <!-- <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard%20food.jpeg?raw=true" height = "500px"/>-->
 </tr>
 </tbody>
@@ -52,7 +52,7 @@
 <th style="text-align:center"><code>Create Complaint </code></th>  
   <th style="text-align:center"><code>Complaint Details </code></th>
 <th style="text-align:center"><code>Admin Redress Complaint </code></th>
-<th style="text-align:center"><code>Dashboard Sanitation </code></th>
+<!-- <th style="text-align:center"><code>Dashboard Sanitation </code></th> -->
 
 </tr>
 </thead>
@@ -62,7 +62,7 @@
   <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/create.jpeg?raw=true" height = "500px"/></td>
   <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/complaint_deatail.jpeg?raw=true" height = "500px"/>
   <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/admin_complaint.jpeg?raw=true" height = "500px"/></td>
-<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard.jpeg?raw=true" height = "500px"/></td> 
+<!-- <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard.jpeg?raw=true" height = "500px"/></td> -->
   
   
 </tr>
