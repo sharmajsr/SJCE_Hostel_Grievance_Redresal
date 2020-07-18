@@ -23,9 +23,50 @@
 - Public Platform 
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/31768622/75194131-8c9f4c80-577d-11ea-8913-1e53a029d7aa.jpeg" height="565px" width="300px" alt="Login Page" hspace="100"/> <img src="https://user-images.githubusercontent.com/31768622/75194131-8c9f4c80-577d-11ea-8913-1e53a029d7aa.jpeg" height="565px" width="300px" alt="SignUp Page"/> 
-  
-<img src="https://user-images.githubusercontent.com/31768622/75193985-4ea22880-577d-11ea-9d41-410470886628.jpeg" height="565px" width="300px" alt="Dashboard Page" hspace="100"/> <img src="https://user-images.githubusercontent.com/31768622/75193669-b0ae5e00-577c-11ea-88d3-90116cefea90.jpeg" height="565px" width="300px" alt="Add Complaint Page" /> 
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><code>Login </code></th>
+<th style="text-align:center"><code>Sign Up </code></th>
+<th style="text-align:center"><code>Dashboard Electrical</code></th>
+<th style="text-align:center"><code>Dashboard Food </code></th>
 
- <img src="https://user-images.githubusercontent.com/31768622/75195267-9fb31c00-577f-11ea-8b28-fd77ff3694f1.jpeg" height="565px" width="300px" alt="Add Complaint Page" hspace="100"/> <img src="https://user-images.githubusercontent.com/31768622/75194082-75605f00-577d-11ea-839b-a8e7c61083fb.jpeg" height="565px" width="300px" alt="Complaint Redressal  Page" />
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/login.jpeg?raw=true" height = "500px"/></td>
+<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/signup.jpeg?raw=true" height = "500px"/></td>
   
+<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard%20electrical.jpeg?raw=true" height = "500px"/></td>
+<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard%20food.jpeg?raw=true" height = "500px"/>
+</tr>
+</tbody>
+</table>
+
+
+<table>
+<thead>
+<tr>
+
+<th style="text-align:center"><code>Create Complaint </code></th>  
+  <th style="text-align:center"><code>Complaint Details </code></th>
+<th style="text-align:center"><code>Admin Redress Complaint </code></th>
+<th style="text-align:center"><code>Dashboard Sanitation </code></th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+  
+  <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/create.jpeg?raw=true" height = "500px"/></td>
+  <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/complaint_deatail.jpeg?raw=true" height = "500px"/>
+  <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/admin_complaint.jpeg?raw=true" height = "500px"/></td>
+<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard.jpeg?raw=true" height = "500px"/></td> 
+  
+  
+</tr>
+</tbody>
+</table>
+</div>
+
