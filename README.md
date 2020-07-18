@@ -29,7 +29,7 @@
 <th style="text-align:center"><code>Login </code></th>
 <th style="text-align:center"><code>Sign Up </code></th>
 <th style="text-align:center"><code>Dashboard Electrical</code></th>
-<th style="text-align:center"><code>Dashboard Food </code></th>
+<!-- <th style="text-align:center"><code>Dashboard Food </code></th> -->
 
 </tr>
 </thead>
@@ -39,7 +39,7 @@
 <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/signup.jpeg?raw=true" height = "500px"/></td>
   
 <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard%20electrical.jpeg?raw=true" height = "500px"/></td>
-<td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard%20food.jpeg?raw=true" height = "500px"/>
+<!-- <td style="text-align:center"><img src="https://github.com/sharmajsr/SJCE_Hostel_Grievance_Redresal/blob/shubham/assets/dashboard%20food.jpeg?raw=true" height = "500px"/>-->
 </tr>
 </tbody>
 </table>
